@@ -1,0 +1,117 @@
+@use 'var' as *;
+@use 'mixin' as *;
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Roboto:wght@300;400&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+html {
+  @media (min-width: 48rem) {
+    font-size: 21px;
+  }
+}
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.4;
+}
+section {
+  padding-block: 4rem;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+}
+h2 {
+  font-size: 2.857rem;
+  color: $clr-primary;
+}
+h3 {
+  font-size: 1.715rem;
+}
+p,
+h3 {
+  margin-bottom: 1.5rem;
+}
+// utility classes
+.container {
+  width: min(70.5rem, 80%);
+  margin: 0 auto;
+}
+.txt-cent {
+  text-align: center;
+}
+// hero section
+.hero {
+  min-height: 31.428rem;
+  background: $clr-light;
+  @include flex;
+  p {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 0.857rem;
+    font-weight: 300;
+    margin-bottom: 0.4rem;
+  }
+}
+// 2nd section
+.quality {
+  padding-block: 5rem;
+  &.container {
+    @include flex(column, center, center);
+  }
+  h3 {
+    color: $clr-primary;
+  }
+  p {
+    & + p {
+      margin-bottom: 0;
+    }
+    @media (min-width: 48em) {
+      margin: 0;
+    }
+  }
+  .columns {
+    @media (min-width: 48em) {
+      columns: 2;
+      gap: 3rem;
+    }
+  }
+}
+// 3rd section
+.custom,
+.care {
+  color: $white;
+  .container {
+    @include flex(column, center, center);
+    @media (min-width: 48rem) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+  }
+  .text,
+  .image {
+    flex-basis: 50%;
+  }
+  h3 {
+    color: $white;
+  }
+}
+.custom {
+  background: $clr-dark;
+}
+.care {
+  background: $clr-primary;
+  .container {
+    @media (min-width: 48rem) {
+      flex-direction: row-reverse;
+    }
+  }
+}
